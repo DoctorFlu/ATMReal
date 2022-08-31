@@ -1,45 +1,25 @@
+import java.util.HashMap;
 public class account {
-private int accountID;
-private double balance;
-private boolean isOpen;
+HashMap<Integer, Double> accountList;
 
-public account(int accountID, double balance) {
-	this.accountID = accountID;
-	this.balance = balance;
-	this.isOpen = true;
+public account() {
+	accountList = new HashMap<Integer, Double>();
 }
-public static String openAccount(int accountNumber) {
-	account account = new account(accountNumber, 0);
-	return "Your account has been created! It's called " + account.accountID;
+public String openAccount(int accountNumber) {
+	accountList.put(accountNumber,0.0);
+	return "Your account has been created! It's ID is: " + accountList.get(accountNumber) + " and your balance is: " + accountList.get(0.0);
 }
-
-public static String openAccount(int accountNumber, double balance) {
-	account account = new account(accountNumber, balance);
-	return "Your account has been created! It's called " + account.accountID + " and has a balance of " + account.balance;
+public String openAccount(int accountNumber, double balance) {
+	accountList.put(accountNumber, balance);
+	return "Your acount has been created! IT's ID is: " + accountList.get(accountNumber) + " and your current balance is: " + accountList.get(balance);
 }
 
-public static String closeAccount(int accountID) {
-	if (account.balance == 0) {
-		
+public String closeAccount(int accountID) {
+	if (accountList.get(accountID) == 0.0) {
+		accountList.remove(accountID);
+		return "Your account has been closed!";
+	} else {
+		return "Your account couldn't be closed! Make sure your balance is 0.0";
 	}
 }
-public int getAccountID() {
-	return accountID;
 }
-public void setAccountID(int accountID) {
-	this.accountID = accountID;
-}
-public double getBalance() {
-	return balance;
-}
-public void setBalance(double balance) {
-	this.balance = balance;
-}
-public boolean isOpen() {
-	return isOpen;
-}
-public void setOpen(boolean isOpen) {
-	this.isOpen = isOpen;
-}
-}
-
