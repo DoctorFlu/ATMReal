@@ -1,8 +1,8 @@
 
 public class ATMTester {
-
+	//TODO: Check high number cases and round
 	public static void main(String[] args) {
-		account chase = new account(12, 0);
+		account chase = new account();
 		
 		// Open accounts
 		chase.openAccount(00001);
