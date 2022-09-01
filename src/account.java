@@ -19,12 +19,12 @@ public void closeAccount(int accountID) {
 }
 
 public double checkBalance(int accountID) {
-	return accountList.get(accountID);
+	return (double) accountList.get(accountID);
 }
 
 public boolean depositMoney(int accountID, double deposit) {
 	if(Math.abs(deposit) == deposit && deposit < 10000) {
-		accountList.put(accountID, accountList.get(accountID) + Math.round(deposit));
+		accountList.put(accountID, accountList.get(accountID) + deposit);
 		return true;
 	} else {
 		return false;
@@ -35,7 +35,8 @@ public boolean withdrawMoney(int accountID, double withdrawl) {
 	double currentMoney = accountList.get(accountID);
 	System.out.println(currentMoney);
 	if(Math.abs(withdrawl) == withdrawl && accountList.get(accountID) >= withdrawl) {
-		accountList.put(accountID, currentMoney - withdrawl);
+		double newMoney = 0.1 * Math.floor((currentMoney - withdrawl) * 10.0);
+		accountList.put(accountID, newMoney);
 		return true;
 	} else {
 		return false;
