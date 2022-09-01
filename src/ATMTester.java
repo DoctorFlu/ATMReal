@@ -1,13 +1,16 @@
 
 public class ATMTester {
-	//TODO: Check high number cases and round
 	public static void main(String[] args) {
 		account chase = new account();
 		
 		// Open accounts
 		chase.openAccount(00001);
 		chase.openAccount(00002, 2500.0);
-
+		chase.openAccount(00003);
+		chase.openAccount(00004);
+		chase.openAccount(01337);
+		chase.openAccount(21504);
+		
 		// Test Basic Functionality
 		chase.depositMoney(00001, 433.45);
 		chase.depositMoney(00001, 434.77);
@@ -19,7 +22,7 @@ public class ATMTester {
 		chase.withdrawMoney(00001, 100.00);
 		chase.withdrawMoney(00001, 1000.00);
 		System.out.println(chase.checkBalance(00001)); // Should be 667.23
-
+		
 		// Test Invalid Deposits
 		chase.depositMoney(00003, -433.45);
 		chase.depositMoney(00004, 32434.77);
